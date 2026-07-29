@@ -1,97 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>Scotland Family Road Trip 2026</title>
-<style>
-:root{--bg:#f6f7fb;--card:#fff;--text:#172033;--muted:#667085;--brand:#174a7c;--accent:#e9f2ff;--line:#e7eaf0;--ok:#138a55;--warn:#b36b00;--danger:#b42318;--shadow:0 8px 24px rgba(16,24,40,.08)}
-*{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
-header{position:sticky;top:0;z-index:20;background:rgba(246,247,251,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
-.header-inner{max-width:980px;margin:auto;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px}
-.title{font-weight:800;font-size:19px}.subtitle{font-size:12px;color:var(--muted)}
-main{max-width:980px;margin:auto;padding:16px 16px 88px}.hero{background:linear-gradient(135deg,#173d68,#2a6da5);color:white;border-radius:22px;padding:22px;box-shadow:var(--shadow)}
-.hero h1{margin:0 0 6px;font-size:28px}.hero p{margin:0;opacity:.92}.pillrow{display:flex;flex-wrap:wrap;gap:8px;margin-top:15px}.pill{background:rgba(255,255,255,.15);padding:8px 10px;border-radius:999px;font-size:13px}
-.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px;margin-top:14px}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px;box-shadow:var(--shadow)}
-.span12{grid-column:span 12}.span6{grid-column:span 6}.span4{grid-column:span 4}.section-title{margin:0 0 12px;font-size:18px}.small{font-size:13px;color:var(--muted)}
-.route{display:flex;flex-direction:column;gap:0}.route-item{display:grid;grid-template-columns:34px 1fr auto;gap:10px;align-items:start}.dot{width:14px;height:14px;border-radius:50%;background:var(--brand);margin:5px auto 0;position:relative}.route-item:not(:last-child) .dot:after{content:"";position:absolute;top:14px;left:6px;width:2px;height:54px;background:#c8d5e3}.route-main{padding-bottom:20px}.route-name{font-weight:750}.route-meta{font-size:13px;color:var(--muted);margin-top:3px}.badge{font-size:12px;background:var(--accent);color:var(--brand);padding:5px 8px;border-radius:999px;white-space:nowrap}
-.navbar{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--line);display:flex;justify-content:center;z-index:30}.nav-inner{width:min(980px,100%);display:grid;grid-template-columns:repeat(5,1fr)}.nav-btn{border:0;background:transparent;padding:10px 4px 12px;font-size:11px;color:var(--muted)}.nav-btn.active{color:var(--brand);font-weight:800}.nav-icon{display:block;font-size:20px;margin-bottom:3px}
-button.action,a.action{display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:12px;padding:10px 12px;background:var(--brand);color:white;text-decoration:none;font-weight:700;font-size:14px;cursor:pointer}button.secondary,a.secondary{background:#eef2f6;color:var(--text)}
-.hidden{display:none!important}.day-card{border:1px solid var(--line);border-radius:16px;padding:14px;margin-bottom:12px}.day-head{display:flex;justify-content:space-between;gap:12px;align-items:center}.day-head h3{margin:0;font-size:17px}.day-stops{margin-top:10px;display:flex;flex-wrap:wrap;gap:8px}.stop-chip{background:#f1f4f8;border-radius:999px;padding:7px 10px;font-size:13px}
-label{display:block;font-size:13px;font-weight:700;margin:10px 0 6px}input,select,textarea{width:100%;padding:11px 12px;border:1px solid #d7dce3;border-radius:12px;background:#fff;font:inherit}textarea{min-height:86px;resize:vertical}.family-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.family-card{border:1px solid var(--line);border-radius:15px;padding:13px}.status{font-size:12px;font-weight:700}.status.ok{color:var(--ok)}
-.check-row{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--line)}.check-row:last-child{border-bottom:0}.check-row input{width:auto}.expense-row{display:grid;grid-template-columns:1fr 110px auto;gap:8px;margin-bottom:8px}.total{font-size:24px;font-weight:800}.note{background:#fff8e7;border:1px solid #f3d79f;color:#7a4d00;padding:12px;border-radius:12px;font-size:13px}
-@media(max-width:720px){.span6,.span4{grid-column:span 12}.family-grid{grid-template-columns:1fr}.hero h1{font-size:24px}.expense-row{grid-template-columns:1fr 90px auto}}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#153f69" />
+  <title>Scotland Family Road Trip 2026</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-<header><div class="header-inner"><div><div class="title">🏴 Scotland Family Road Trip</div><div class="subtitle">1–6 August 2026 · 5 families · 10 adults · 3 children</div></div><button class="action secondary" id="printBtn">Print</button></div></header>
-<main>
-<section id="home" class="page">
-  <div class="hero">
-    <h1>Your full travel path</h1>
-    <p>Personal journey to the first meeting point, shared Scotland route, then personal journey home.</p>
-    <div class="pillrow"><span class="pill">🚩 Start together: Moto Knutsford</span><span class="pill">🏁 Separate: Tebay Services</span><span class="pill">👨‍👩‍👧‍👦 13 travellers</span></div>
-  </div>
-  <div class="grid">
-    <div class="card span12">
-      <h2 class="section-title">Complete route overview</h2>
-      <div class="route">
-        <div class="route-item"><div class="dot"></div><div class="route-main"><div class="route-name">Each family’s home postcode</div><div class="route-meta">Private route created individually inside the Families section.</div></div><span class="badge">Personal</span></div>
-        <div class="route-item"><div class="dot"></div><div class="route-main"><div class="route-name">Moto Knutsford M6 Northbound</div><div class="route-meta">Official first meeting point for all five families.</div></div><span class="badge">Meet</span></div>
-        <div class="route-item"><div class="dot"></div><div class="route-main"><div class="route-name">Moto Southwaite Northbound</div><div class="route-meta">Second regroup stop for food, fuel and toilets.</div></div><span class="badge">Regroup</span></div>
-        <div class="route-item"><div class="dot"></div><div class="route-main"><div class="route-name">Dalkeith / Edinburgh</div><div class="route-meta">Night 1 · Royal Mile · Victoria Street · Dean Village.</div></div><span class="badge">Day 1</span></div>
-        <div class="route-item"><div class="dot"></div><div class="route-main"><div class="route-name">Edinburgh → Kelpies → Steall Waterfall → Glencoe</div><div class="route-meta">Night 2 and 3 base in Glencoe.</div></div><span class="badge">Day 2</span></div>
-        <div class="route-item"><div class="dot"></div><div class="route-main"><div class="route-name">Eilean Donan → Old Man of Storr → Portree → Kilt Rock</div><div class="route-meta">Isle of Skye day trip, then return to Glencoe.</div></div><span class="badge">Day 3</span></div>
-        <div class="route-item"><div class="dot"></div><div class="route-main"><div class="route-name">Glenfinnan → Sligachan → Fairy Pools → Stirling</div><div class="route-meta">Check in at 40 Causewayhead Road, Stirling.</div></div><span class="badge">Day 4</span></div>
-        <div class="route-item"><div class="dot"></div><div class="route-main"><div class="route-name">Stirling Castle → Whisky Experience → Falkirk Wheel → Silver Sands</div><div class="route-meta">Relaxed central Scotland sightseeing day.</div></div><span class="badge">Day 5</span></div>
-        <div class="route-item"><div class="dot"></div><div class="route-main"><div class="route-name">Stirling → scenic return route → Tebay Services</div><div class="route-meta">Final shared group stop and goodbye point.</div></div><span class="badge">Day 6</span></div>
-        <div class="route-item"><div class="dot"></div><div class="route-main"><div class="route-name">Tebay Services → each family’s home postcode</div><div class="route-meta">Families continue independently using their saved postcode.</div></div><span class="badge">Personal</span></div>
-      </div>
-      <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="action" onclick="showPage('itinerary')">Open full itinerary</button><button class="action secondary" onclick="showPage('families')">Add family postcodes</button></div>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">1–6 August 2026</p>
+      <h1>🏴 Scotland Family Road Trip</h1>
+      <p>5 families · 10 adults · 3 children</p>
     </div>
-    <div class="card span6"><h2 class="section-title">Accommodation</h2><p><strong>Night 1:</strong> 25–27 High Street, Dalkeith, EH22 1LB</p><p><strong>Nights 2–3:</strong> Glencoe home · address to be confirmed</p><p><strong>Nights 4–5:</strong> 40 Causewayhead Road, Stirling, FK9 5EY</p></div>
-    <div class="card span6"><h2 class="section-title">Group summary</h2><p><strong>5 families</strong></p><p>10 adults + 3 children = <strong>13 travellers</strong></p><p class="small">Vehicle details can be added later.</p></div>
-    <div class="card span12"><div class="note">This version is a single self-contained web app. The Home page now carries the full travel path, as requested.</div></div>
-  </div>
-</section>
-<section id="itinerary" class="page hidden">
-  <div class="card"><h2 class="section-title">Day-by-day itinerary</h2><div id="days"></div></div>
-</section>
-<section id="families" class="page hidden">
-  <div class="card"><h2 class="section-title">Five family profiles</h2><p class="small">Add each starting postcode. The Navigate button opens a route to Moto Knutsford.</p><div class="family-grid" id="familyGrid"></div></div>
-</section>
-<section id="tools" class="page hidden">
-  <div class="grid"><div class="card span6"><h2 class="section-title">Packing checklist</h2><div id="checklist"></div></div><div class="card span6"><h2 class="section-title">Shared expenses</h2><div id="expenses"></div><button class="action secondary" id="addExpense">Add expense</button><p>Total: <span class="total" id="expenseTotal">£0.00</span></p></div></div>
-</section>
-<section id="info" class="page hidden">
-  <div class="grid"><div class="card span6"><h2 class="section-title">Emergency information</h2><p><strong>Emergency:</strong> 999</p><p><strong>NHS:</strong> 111</p><p><strong>Roadside:</strong> add vehicle provider later</p></div><div class="card span6"><h2 class="section-title">Trip notes</h2><textarea id="tripNotes" placeholder="Add shared trip notes..."></textarea></div></div>
-</section>
-</main>
-<nav class="navbar"><div class="nav-inner"><button class="nav-btn active" data-page="home"><span class="nav-icon">🏠</span>Home</button><button class="nav-btn" data-page="itinerary"><span class="nav-icon">🗓️</span>Days</button><button class="nav-btn" data-page="families"><span class="nav-icon">👨‍👩‍👧</span>Families</button><button class="nav-btn" data-page="tools"><span class="nav-icon">🧰</span>Tools</button><button class="nav-btn" data-page="info"><span class="nav-icon">ℹ️</span>Info</button></div></nav>
-<script>
-const itinerary=[
-{day:'Day 1 · Sat 1 Aug',title:'Meet and Edinburgh',stops:['Personal route','Moto Knutsford','Moto Southwaite','Dalkeith check-in','Royal Mile','Victoria Street','Dean Village']},
-{day:'Day 2 · Sun 2 Aug',title:'Edinburgh to Glencoe',stops:['Edinburgh Castle','Scott Monument','The Kelpies','Steall Waterfall','Glencoe check-in']},
-{day:'Day 3 · Mon 3 Aug',title:'Isle of Skye',stops:['Eilean Donan Castle','Old Man of Storr','Portree','Kilt Rock & Mealt Falls','Return to Glencoe']},
-{day:'Day 4 · Tue 4 Aug',title:'Glencoe to Stirling',stops:['Check out 10:00','Glenfinnan Viaduct','Sligachan Old Bridge','Fairy Pools','Stirling check-in']},
-{day:'Day 5 · Wed 5 Aug',title:'Stirling and Falkirk',stops:['Stirling Castle','Whisky experience','Falkirk Wheel','Silver Sands Beach','Optional South Queensferry']},
-{day:'Day 6 · Thu 6 Aug',title:'Return journey',stops:['Pack up','Check out 10:00','Scenic southbound route','Tebay Services goodbye stop','Personal route home']}
-];
-const storageKey='scotlandTripV5';
-let data=JSON.parse(localStorage.getItem(storageKey)||'{}');
-function save(){localStorage.setItem(storageKey,JSON.stringify(data));}
-function showPage(id){document.querySelectorAll('.page').forEach(p=>p.classList.add('hidden'));document.getElementById(id).classList.remove('hidden');document.querySelectorAll('.nav-btn').forEach(b=>b.classList.toggle('active',b.dataset.page===id));window.scrollTo({top:0,behavior:'smooth'});}
-document.querySelectorAll('.nav-btn').forEach(b=>b.addEventListener('click',()=>showPage(b.dataset.page)));
-document.getElementById('printBtn').onclick=()=>window.print();
-const daysEl=document.getElementById('days');itinerary.forEach((d,i)=>{const el=document.createElement('div');el.className='day-card';el.innerHTML=`<div class="day-head"><div><h3>${d.day}</h3><div class="small">${d.title}</div></div><a class="action secondary" target="_blank" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(d.stops[1]||d.title)}">Map</a></div><div class="day-stops">${d.stops.map(s=>`<span class="stop-chip">${s}</span>`).join('')}</div><label>Notes</label><textarea data-day="${i}" placeholder="Add notes for this day...">${(data.dayNotes||[])[i]||''}</textarea>`;daysEl.appendChild(el)});
-daysEl.addEventListener('input',e=>{if(e.target.dataset.day!==undefined){data.dayNotes=data.dayNotes||[];data.dayNotes[e.target.dataset.day]=e.target.value;save();}});
-const fg=document.getElementById('familyGrid');for(let i=0;i<5;i++){const f=(data.families||[])[i]||{};const c=document.createElement('div');c.className='family-card';c.innerHTML=`<h3 style="margin:0 0 8px">Family ${i+1}</h3><label>Family name</label><input data-fi="${i}" data-field="name" value="${f.name||''}" placeholder="Family name"><label>Starting postcode</label><input data-fi="${i}" data-field="postcode" value="${f.postcode||''}" placeholder="e.g. CB23"><label>Adults</label><input type="number" min="0" data-fi="${i}" data-field="adults" value="${f.adults??2}"><label>Children</label><input type="number" min="0" data-fi="${i}" data-field="children" value="${f.children??(i<3?1:0)}"><div style="display:flex;gap:8px;margin-top:10px"><button class="action" onclick="navigateFamily(${i},'out')">To Knutsford</button><button class="action secondary" onclick="navigateFamily(${i},'home')">Home from Tebay</button></div>`;fg.appendChild(c)}
-fg.addEventListener('input',e=>{const i=+e.target.dataset.fi;if(Number.isInteger(i)){data.families=data.families||[];data.families[i]=data.families[i]||{};data.families[i][e.target.dataset.field]=e.target.value;save();}});
-function navigateFamily(i,type){const f=(data.families||[])[i]||{};if(!f.postcode){alert('Please add this family’s postcode first.');return;}const origin=type==='out'?f.postcode:'Tebay Services Southbound';const dest=type==='out'?'Moto Knutsford M6 Northbound':f.postcode;window.open(`https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(origin)}&destination=${encodeURIComponent(dest)}`,'_blank');}
-const checks=['Driving licence','Booking confirmations','Phone chargers','Power banks','Children’s essentials','Snacks and water','Medication','Warm and waterproof clothing','Check every room before checkout','Complete headcount: 13 travellers'];data.checks=data.checks||{};const cl=document.getElementById('checklist');checks.forEach((x,i)=>{const r=document.createElement('label');r.className='check-row';r.innerHTML=`<input type="checkbox" data-check="${i}" ${data.checks[i]?'checked':''}><span>${x}</span>`;cl.appendChild(r)});cl.addEventListener('change',e=>{data.checks[e.target.dataset.check]=e.target.checked;save();});
-function renderExpenses(){data.expenses=data.expenses||[];const ex=document.getElementById('expenses');ex.innerHTML='';data.expenses.forEach((r,i)=>{const row=document.createElement('div');row.className='expense-row';row.innerHTML=`<input data-ei="${i}" data-field="name" value="${r.name||''}" placeholder="Expense"><input type="number" step="0.01" data-ei="${i}" data-field="amount" value="${r.amount||''}" placeholder="£"><button class="action secondary" onclick="removeExpense(${i})">×</button>`;ex.appendChild(row)});const t=data.expenses.reduce((s,r)=>s+(parseFloat(r.amount)||0),0);document.getElementById('expenseTotal').textContent=new Intl.NumberFormat('en-GB',{style:'currency',currency:'GBP'}).format(t)}
-document.getElementById('addExpense').onclick=()=>{data.expenses=data.expenses||[];data.expenses.push({name:'',amount:''});save();renderExpenses()};document.getElementById('expenses').addEventListener('input',e=>{const i=+e.target.dataset.ei;if(Number.isInteger(i)){data.expenses[i][e.target.dataset.field]=e.target.value;save();renderExpenses();}});function removeExpense(i){data.expenses.splice(i,1);save();renderExpenses()}renderExpenses();
-const notes=document.getElementById('tripNotes');notes.value=data.tripNotes||'';notes.addEventListener('input',()=>{data.tripNotes=notes.value;save();});
-</script>
+    <button id="printBtn" class="ghost-btn">Print</button>
+  </header>
+
+  <main>
+    <section id="home" class="page active-page">
+      <div class="hero">
+        <div>
+          <p class="eyebrow light">Complete journey</p>
+          <h2>Homes → Scotland → Homes</h2>
+          <p>Each family travels independently to Moto Knutsford. The shared trip ends at Tebay Services.</p>
+        </div>
+        <div class="hero-stats">
+          <div><strong>6</strong><span>days</span></div>
+          <div><strong>13</strong><span>travellers</span></div>
+          <div><strong>5</strong><span>families</span></div>
+        </div>
+      </div>
+
+      <section class="card">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Travel path</p>
+            <h2>Full route overview</h2>
+          </div>
+          <button class="primary-btn" data-go="itinerary">Open itinerary</button>
+        </div>
+        <div id="routeOverview" class="route-list"></div>
+      </section>
+
+      <div class="two-column">
+        <section class="card">
+          <p class="eyebrow">Accommodation</p>
+          <h2>Where we stay</h2>
+          <div id="accommodationSummary"></div>
+        </section>
+        <section class="card">
+          <p class="eyebrow">Quick actions</p>
+          <h2>Before departure</h2>
+          <div class="quick-grid">
+            <button class="quick-card" data-go="families">Add family postcodes</button>
+            <button class="quick-card" data-go="tools">Packing checklist</button>
+            <button class="quick-card" data-go="tools">Track expenses</button>
+            <button class="quick-card" data-go="info">Emergency info</button>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section id="itinerary" class="page">
+      <div class="page-title">
+        <p class="eyebrow">Day-by-day</p>
+        <h2>Shared itinerary</h2>
+      </div>
+      <div id="itineraryList"></div>
+    </section>
+
+    <section id="families" class="page">
+      <div class="page-title">
+        <p class="eyebrow">Personal routes</p>
+        <h2>Five family profiles</h2>
+        <p>Saved only on the current device.</p>
+      </div>
+      <div id="familyGrid" class="family-grid"></div>
+    </section>
+
+    <section id="tools" class="page">
+      <div class="page-title">
+        <p class="eyebrow">Trip tools</p>
+        <h2>Checklist and expenses</h2>
+      </div>
+      <div class="two-column">
+        <section class="card">
+          <h3>Packing and checkout</h3>
+          <div id="checklist"></div>
+        </section>
+        <section class="card">
+          <div class="section-heading compact">
+            <h3>Shared expenses</h3>
+            <button id="addExpenseBtn" class="ghost-btn">Add</button>
+          </div>
+          <div id="expenseList"></div>
+          <div class="expense-total">Total <strong id="expenseTotal">£0.00</strong></div>
+        </section>
+      </div>
+    </section>
+
+    <section id="info" class="page">
+      <div class="page-title">
+        <p class="eyebrow">Useful information</p>
+        <h2>Accommodation, emergency and notes</h2>
+      </div>
+      <div class="two-column">
+        <section class="card">
+          <h3>Accommodation details</h3>
+          <div id="accommodationDetails"></div>
+        </section>
+        <section class="card">
+          <h3>Emergency</h3>
+          <p><strong>Emergency services:</strong> 999</p>
+          <p><strong>NHS advice:</strong> 111</p>
+          <p><strong>Final group stop:</strong> Tebay Services</p>
+          <label for="tripNotes">Shared notes</label>
+          <textarea id="tripNotes" placeholder="Add booking references, reminders or group notes..."></textarea>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <nav class="bottom-nav" aria-label="Main navigation">
+    <button class="nav-btn active" data-page="home"><span>🏠</span>Home</button>
+    <button class="nav-btn" data-page="itinerary"><span>🗓️</span>Days</button>
+    <button class="nav-btn" data-page="families"><span>👨‍👩‍👧</span>Families</button>
+    <button class="nav-btn" data-page="tools"><span>🧰</span>Tools</button>
+    <button class="nav-btn" data-page="info"><span>ℹ️</span>Info</button>
+  </nav>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
